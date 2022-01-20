@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -22,7 +21,7 @@ public class Main {
                         "Hola te has registrado correctamente")
         );
 
-        List<Email> emails = emailRepository.findAll();
+        List<Email> emails = emailRepository.findByTo("otro@gmail.com");
         for (Email email : emails){
             System.out.println(email.toString());
         }
